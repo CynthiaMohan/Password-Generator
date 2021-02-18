@@ -76,14 +76,38 @@ var generatePassword = function () {
     console.log(lowerCase, upperCase, numerals, special);
     // Generate the random Password of entered length
     for (let i = 0; i < passwordLength; i++) {
-        if (lowerCase === true && passwordChar.length < passwordLength)
-            passwordChar += generateRandomLowercase();
-        if (upperCase === true && passwordChar.length < passwordLength)
-            passwordChar += generateRandomUppercase();
-        if (numerals === true && passwordChar.length < passwordLength)
-            passwordChar += generateRandomNumber();
-        if (special === true && passwordChar.length < passwordLength)
-            passwordChar += generateRandomspecialchars();
+        if (lowerCase === true)
+            if (passwordChar.length < passwordLength) {
+                return;
+            }
+            else {
+                passwordChar += generateRandomLowercase();
+            }
+
+        if (upperCase === true)
+            if (passwordChar.length < passwordLength) {
+                return;
+            }
+            else {
+                passwordChar += generateRandomUppercase();
+            }
+
+        if (numerals === true)
+            if (passwordChar.length < passwordLength) {
+                return;
+            }
+            else {
+                passwordChar += generateRandomNumber();
+            }
+
+        if (special === true)
+            if (passwordChar.length < passwordLength) {
+                return;
+            }
+            else {
+                passwordChar += generateRandomspecialchars();
+            }
+
     };
 
 
@@ -98,7 +122,9 @@ var generatePassword = function () {
     // generateRandomspecialchars();
     return (passwordChar);
 };
+var reset = function () {
 
+}
 
 
 // Write password to the #password input
@@ -121,7 +147,7 @@ function writePassword() {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-
+    reset();
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
