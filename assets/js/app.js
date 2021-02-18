@@ -103,6 +103,8 @@ var generatePassword = function () {
 
 // Write password to the #password input
 function writePassword() {
+    //Checking which criteria user wants for the password
+    pswdCriteria();
     // Get password lenght
     enterPasswordLength();
     // Checking if password length is <8 or >128. then ask again.
@@ -113,8 +115,7 @@ function writePassword() {
         window.alert("Password length should be between 8 to 128 characters. Please try again.");
         enterPasswordLength();
     };
-    //Checking which criteria user wants for the password
-    pswdCriteria();
+
     debugger;
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
